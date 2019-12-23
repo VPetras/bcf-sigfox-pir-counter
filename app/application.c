@@ -11,7 +11,7 @@ bc_data_stream_t sm_voltage;
 
 bc_led_t led;
 bc_button_t button;
-bc_tmp112_t temp;
+bc_tmp112_t tmp112;
 bc_module_pir_t pir;
 bc_module_sigfox_t sigfox_module;
 
@@ -23,7 +23,7 @@ void tmp112_event_handler(bc_tmp112_t *self, bc_tmp112_event_t event, void *even
     {
         float temperature;
 
-        if (bc_tmp112_get_temperature_celsius(&temp, &temperature))
+        if (bc_tmp112_get_temperature_celsius(&tmp112, &temperature))
         {
             bc_data_stream_feed(&sm_thermometer, &temperature);
         }
@@ -31,7 +31,6 @@ void tmp112_event_handler(bc_tmp112_t *self, bc_tmp112_event_t event, void *even
         {
             bc_data_stream_reset(&sm_thermometer);
         }
-
     }
 }
 
@@ -105,13 +104,12 @@ void application_init(void)
     bc_button_init(&button, BC_GPIO_BUTTON, BC_GPIO_PULL_DOWN, false);
     bc_button_set_event_handler(&button, button_event_handler, NULL);
 
-    bc_tmp112_init(&temp, BC_I2C_I2C0, 0x49);
-    bc_tmp112_set_event_handler(&temp, tmp112_event_handler, NULL);
-    bc_tmp112_set_update_interval(&temp, SENSOR_UPDATE_INTERVAL);
+    bc_tmp112_init(&tmp112, BC_I2C_I2C0, 0x49);
+    bc_tmp112_set_event_handler(&tmp112, tmp112_event_handler, NULL);
+    bc_tmp112_set_update_interval(&tmp112, SENSOR_UPDATE_INTERVAL);
 
     bc_module_sigfox_init(&sigfox_module, BC_MODULE_SIGFOX_REVISION_R2);
     bc_module_sigfox_set_event_handler(&sigfox_module, sigfox_module_event_handler, NULL);
-
 
     bc_scheduler_plan_absolute(0, 10 * 1000);
 }

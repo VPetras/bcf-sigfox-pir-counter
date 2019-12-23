@@ -230,7 +230,6 @@ sm_thermometer      0x10              obj/debug/app/application.o
 errno               0x4               /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc.a(lib_a-reent.o)
 g_xStatus           0x2               obj/debug/sdk/stm/spirit1/src/SPIRIT_Types.o
 uwTick              0x4               obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
-temp                0x38              obj/debug/app/application.o
 _bc_ws2812b_timer2_oc1
                     0x10              obj/debug/sdk/bcl/src/bc_ws2812b.o
 pFlash              0x18              obj/debug/sdk/stm/hal/src/stm32l0xx_hal_flash.o
@@ -250,6 +249,7 @@ sm_buffer_thermometer_feed
 _bc_ws2812b_timer2_handle
                     0x38              obj/debug/sdk/bcl/src/bc_ws2812b.o
 _bc_module_lcd      0x9f8             obj/debug/sdk/bcl/src/bc_module_lcd.o
+tmp112              0x38              obj/debug/app/application.o
 sm_voltage_buffer_sort
                     0x20              obj/debug/app/application.o
 sm_voltage_buffer_feed
@@ -27031,7 +27031,7 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
  .igot.plt      0x0000000020000a94        0x0 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtbegin.o
                 0x0000000020000a94                . = ALIGN (0x4)
 
-.bss            0x0000000020000a98      0xbf4 load address 0x000000000800fcec
+.bss            0x0000000020000a98      0xbf8 load address 0x000000000800fcec
                 0x0000000020000a98                _sbss = .
                 0x0000000020000a98                __bss_start__ = _sbss
  *(.bss)
@@ -27109,43 +27109,43 @@ LOAD /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/crtn.o
                 0x00000000200010d0                __lock___tz_mutex
                 0x00000000200010d4                __lock___sfp_recursive_mutex
  *fill*         0x00000000200010d5        0x3 
- COMMON         0x00000000200010d8      0x32c obj/debug/app/application.o
+ COMMON         0x00000000200010d8      0x330 obj/debug/app/application.o
                 0x00000000200010d8                sm_buffer_thermometer_sort
                 0x0000000020001114                sigfox_module
                 0x0000000020001264                sm_thermometer
-                0x0000000020001278                temp
-                0x00000000200012b0                button
-                0x0000000020001310                led
-                0x0000000020001340                pir
-                0x0000000020001378                sm_buffer_thermometer_feed
-                0x00000000200013b4                sm_voltage_buffer_sort
-                0x00000000200013d4                sm_voltage_buffer_feed
-                0x00000000200013f4                sm_voltage
- COMMON         0x0000000020001404        0x8 obj/debug/sdk/bcl/src/bc_timer.o
-                0x0000000020001404                bc_timer_tim3_irq
- COMMON         0x000000002000140c       0x48 obj/debug/sdk/bcl/src/bc_ws2812b.o
-                0x000000002000140c                _bc_ws2812b_timer2_oc1
-                0x000000002000141c                _bc_ws2812b_timer2_handle
- COMMON         0x0000000020001454      0x230 obj/debug/sdk/bcl/stm/src/usbd_conf.o
-                0x0000000020001454                hpcd_USB_FS
- COMMON         0x0000000020001684        0x4 obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
-                0x0000000020001684                uwTick
- COMMON         0x0000000020001688        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc.a(lib_a-reent.o)
-                0x0000000020001688                errno
-                0x000000002000168c                . = ALIGN (0x4)
-                0x000000002000168c                _ebss = .
-                0x000000002000168c                __bss_end__ = _ebss
+                0x0000000020001278                button
+                0x00000000200012d8                led
+                0x0000000020001308                pir
+                0x0000000020001340                sm_buffer_thermometer_feed
+                0x0000000020001380                tmp112
+                0x00000000200013b8                sm_voltage_buffer_sort
+                0x00000000200013d8                sm_voltage_buffer_feed
+                0x00000000200013f8                sm_voltage
+ COMMON         0x0000000020001408        0x8 obj/debug/sdk/bcl/src/bc_timer.o
+                0x0000000020001408                bc_timer_tim3_irq
+ COMMON         0x0000000020001410       0x48 obj/debug/sdk/bcl/src/bc_ws2812b.o
+                0x0000000020001410                _bc_ws2812b_timer2_oc1
+                0x0000000020001420                _bc_ws2812b_timer2_handle
+ COMMON         0x0000000020001458      0x230 obj/debug/sdk/bcl/stm/src/usbd_conf.o
+                0x0000000020001458                hpcd_USB_FS
+ COMMON         0x0000000020001688        0x4 obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
+                0x0000000020001688                uwTick
+ COMMON         0x000000002000168c        0x4 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libc.a(lib_a-reent.o)
+                0x000000002000168c                errno
+                0x0000000020001690                . = ALIGN (0x4)
+                0x0000000020001690                _ebss = .
+                0x0000000020001690                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x000000002000168c      0x500 load address 0x000000000800fcec
-                0x000000002000168c                . = ALIGN (0x4)
-                0x000000002000168c                PROVIDE (end = .)
+                0x0000000020001690      0x500 load address 0x000000000800fcec
+                0x0000000020001690                . = ALIGN (0x4)
+                0x0000000020001690                PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
-                0x000000002000178c                . = (. + _Min_Heap_Size)
- *fill*         0x000000002000168c      0x100 
-                0x0000000020001b8c                . = (. + _Min_Stack_Size)
- *fill*         0x000000002000178c      0x400 
-                0x0000000020001b8c                . = ALIGN (0x4)
+                0x0000000020001790                . = (. + _Min_Heap_Size)
+ *fill*         0x0000000020001690      0x100 
+                0x0000000020001b90                . = (. + _Min_Stack_Size)
+ *fill*         0x0000000020001790      0x400 
+                0x0000000020001b90                . = ALIGN (0x4)
 
 /DISCARD/
  libc.a(*)
@@ -27938,7 +27938,7 @@ OUTPUT(out/debug/firmware.elf elf32-littlearm)
 
 .debug_str      0x0000000000000000    0x88bd3
  .debug_str     0x0000000000000000    0x80be3 obj/debug/app/application.o
-                                      0x8113c (size before relaxing)
+                                      0x8113e (size before relaxing)
  .debug_str     0x0000000000080be3      0x64a obj/debug/sdk/bcl/src/bc_gpio.o
                                       0x7ecdf (size before relaxing)
  .debug_str     0x000000000008122d      0x478 obj/debug/sdk/bcl/src/bc_td1207r.o
