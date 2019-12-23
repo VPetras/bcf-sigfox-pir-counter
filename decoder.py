@@ -5,7 +5,7 @@ import __future__
 def temperature_decode(txt):
     if txt == 'ff':
         return None
-    return int(txt, 16) / 2.0 - 28
+    return int(txt, 16) / 10.0
 
 
 def decode(data):

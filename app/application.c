@@ -9,7 +9,7 @@ bc_data_stream_t stream_thermometer;
 
 bc_led_t led;
 bc_button_t button;
-bc_tmp112_t tmp;
+bc_tmp112_t temp;
 bc_module_pir_t pir;
 bc_module_sigfox_t sigfox_module;
 
@@ -17,14 +17,11 @@ uint16_t pir_count = 0;
 
 void tmp112_event_handler(bc_tmp112_t *self, bc_tmp112_event_t event, void *event_param)
 {
-    (void) self;
-    (void) event_param;
-
     if (event == BC_TMP112_EVENT_UPDATE)
     {
         float temperature;
 
-        if (bc_tmp112_get_temperature_celsius(&tmp, &temperature))
+        if (bc_tmp112_get_temperature_celsius(&temp, &temperature))
         {
             bc_data_stream_feed(&stream_thermometer, &temperature);
         }
@@ -38,9 +35,6 @@ void tmp112_event_handler(bc_tmp112_t *self, bc_tmp112_event_t event, void *even
 
 void sigfox_module_event_handler(bc_module_sigfox_t *self, bc_module_sigfox_event_t event, void *event_param)
 {
-    (void) self;
-    (void) event_param;
-
     if (event == BC_MODULE_SIGFOX_EVENT_SEND_RF_FRAME_START)
     {
         bc_led_set_mode(&led, BC_LED_MODE_ON);
@@ -57,9 +51,6 @@ void sigfox_module_event_handler(bc_module_sigfox_t *self, bc_module_sigfox_even
 
 void button_event_handler(bc_button_t *self, bc_button_event_t event, void *event_param)
 {
-    (void) self;
-    (void) event_param;
-
     if (event == BC_BUTTON_EVENT_CLICK)
     {
         bc_scheduler_plan_now(0);
@@ -68,13 +59,12 @@ void button_event_handler(bc_button_t *self, bc_button_event_t event, void *even
 
 void pir_event_handler(bc_module_pir_t *self, bc_module_pir_event_t event, void *event_param)
 {
-    (void) self;
-    (void) event_param;
-
     if (event == BC_MODULE_PIR_EVENT_MOTION)
     {
-        bc_log_debug("movement");
-        pir_count++;
+        if (pir_count < 0xffff)
+        {
+            pir_count++;
+        }
     }
 }
 
@@ -94,9 +84,9 @@ void application_init(void)
     bc_button_init(&button, BC_GPIO_BUTTON, BC_GPIO_PULL_DOWN, false);
     bc_button_set_event_handler(&button, button_event_handler, NULL);
 
-    bc_tmp112_init(&tmp, BC_I2C_I2C0, 0x49);
-    bc_tmp112_set_event_handler(&tmp, tmp112_event_handler, NULL);
-    bc_tmp112_set_update_interval(&tmp, SENSOR_UPDATE_INTERVAL);
+    bc_tmp112_init(&temp, BC_I2C_I2C0, 0x49);
+    bc_tmp112_set_event_handler(&temp, tmp112_event_handler, NULL);
+    bc_tmp112_set_update_interval(&temp, SENSOR_UPDATE_INTERVAL);
 
     bc_module_sigfox_init(&sigfox_module, BC_MODULE_SIGFOX_REVISION_R2);
     bc_module_sigfox_set_event_handler(&sigfox_module, sigfox_module_event_handler, NULL);
@@ -108,8 +98,6 @@ void application_init(void)
 
 void application_task(void *param)
 {
-    (void) param;
-
     bc_log_debug("task");
 
     float average;
@@ -118,7 +106,7 @@ void application_task(void *param)
 
     if (bc_data_stream_get_average(&stream_thermometer, &average))
     {
-        temperature = average * 2;
+        temperature = average * 10;
     }
 
     uint8_t buffer[4];
