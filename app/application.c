@@ -118,7 +118,9 @@ void application_init(void)
 
 void application_task(void)
 {
-    uint8_t buffer[5];
+    static uint8_t buffer[5];
+
+    memset(buffer, 0xff, sizeof(buffer));
     
     float voltage_avg = NAN;
 
