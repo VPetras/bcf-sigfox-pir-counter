@@ -4,8 +4,10 @@
 #define SENSOR_DATA_STREAM_SAMPLES 15
 #define SENSOR_UPDATE_INTERVAL (1 * 60 * 1000)
 
-BC_DATA_STREAM_FLOAT_BUFFER(stream_buffer_thermometer, SENSOR_DATA_STREAM_SAMPLES)
-bc_data_stream_t stream_thermometer;
+BC_DATA_STREAM_FLOAT_BUFFER(sm_buffer_thermometer, SENSOR_DATA_STREAM_SAMPLES)
+BC_DATA_STREAM_FLOAT_BUFFER(sm_voltage_buffer, 8)
+bc_data_stream_t sm_thermometer;
+bc_data_stream_t sm_voltage;
 
 bc_led_t led;
 bc_button_t button;
@@ -23,13 +25,33 @@ void tmp112_event_handler(bc_tmp112_t *self, bc_tmp112_event_t event, void *even
 
         if (bc_tmp112_get_temperature_celsius(&temp, &temperature))
         {
-            bc_data_stream_feed(&stream_thermometer, &temperature);
+            bc_data_stream_feed(&sm_thermometer, &temperature);
         }
         else
         {
-            bc_data_stream_reset(&stream_thermometer);
+            bc_data_stream_reset(&sm_thermometer);
         }
 
+    }
+}
+
+void battery_event_handler(bc_module_battery_event_t event, void *event_param)
+{
+    if (event == BC_MODULE_BATTERY_EVENT_UPDATE)
+    {
+        float voltage = NAN;
+
+        bc_module_battery_get_voltage(&voltage);
+
+        bc_data_stream_feed(&sm_voltage, &voltage);
+    }
+}
+
+void battery_measure_task(void *param)
+{
+    if (!bc_module_battery_measure())
+    {
+        bc_scheduler_plan_current_now();
     }
 }
 
@@ -70,9 +92,8 @@ void pir_event_handler(bc_module_pir_t *self, bc_module_pir_event_t event, void 
 
 void application_init(void)
 {
-    bc_data_stream_init(&stream_thermometer, SENSOR_DATA_STREAM_SAMPLES, &stream_buffer_thermometer);
-
-    bc_log_init(BC_LOG_LEVEL_DUMP, BC_LOG_TIMESTAMP_ABS);
+    bc_data_stream_init(&sm_thermometer, SENSOR_DATA_STREAM_SAMPLES, &sm_buffer_thermometer);
+    bc_data_stream_init(&sm_voltage, 1, &sm_voltage_buffer);
 
     bc_module_pir_init(&pir);
     bc_module_pir_set_sensitivity(&pir, BC_MODULE_PIR_SENSITIVITY_MEDIUM);
@@ -91,30 +112,36 @@ void application_init(void)
     bc_module_sigfox_init(&sigfox_module, BC_MODULE_SIGFOX_REVISION_R2);
     bc_module_sigfox_set_event_handler(&sigfox_module, sigfox_module_event_handler, NULL);
 
-    bc_log_debug("init");
 
-    bc_scheduler_plan_absolute(0, 1 * 1000);
+    bc_scheduler_plan_absolute(0, 10 * 1000);
 }
 
-void application_task(void *param)
+void application_task(void)
 {
-    bc_log_debug("task");
+    uint8_t buffer[5];
+    
+    float voltage_avg = NAN;
 
-    float average;
+    bc_data_stream_get_average(&sm_voltage, &voltage_avg);
 
-    int16_t temperature = 0;
-
-    if (bc_data_stream_get_average(&stream_thermometer, &average))
+    if (!isnan(voltage_avg))
     {
-        temperature = average * 10;
+        buffer[0] = ceil(voltage_avg * 10.f);
+    }
+    float temperature_avg = NAN;
+
+    bc_data_stream_get_average(&sm_thermometer, &temperature_avg);
+
+    if (!isnan(temperature_avg))
+    {
+        int16_t temperature_i16 = (int16_t) (temperature_avg * 10.f);
+
+        buffer[1] = temperature_i16 >> 8;
+        buffer[2] = temperature_i16;
     }
 
-    uint8_t buffer[4];
-
-    buffer[0] = temperature;
-    buffer[1] = temperature >> 8;
-    buffer[2] = pir_count;
-    buffer[3] = pir_count >> 8;
+    buffer[3] = pir_count;
+    buffer[4] = pir_count >> 8;
 
     if (bc_module_sigfox_send_rf_frame(&sigfox_module, buffer, sizeof(buffer)))
     {
