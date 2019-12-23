@@ -27497,49 +27497,49 @@ OUTPUT(out/debug/firmware.elf elf32-littlearm)
  .debug_frame   0x00000000000048a8       0x2c /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/thumb/v6-m/libgcc.a(unorddf2.o)
  .debug_frame   0x00000000000048d4       0x20 /usr/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/libnosys.a(sbrk.o)
 
-.debug_info     0x0000000000000000    0x32a50
- .debug_info    0x0000000000000000     0x206e obj/debug/app/application.o
- .debug_info    0x000000000000206e      0xfac obj/debug/sdk/bcl/src/bc_gpio.o
- .debug_info    0x000000000000301a     0x12f0 obj/debug/sdk/bcl/src/bc_td1207r.o
- .debug_info    0x000000000000430a     0x1061 obj/debug/sdk/bcl/src/bc_log.o
- .debug_info    0x000000000000536b     0x12f7 obj/debug/sdk/bcl/src/bc_module_sigfox.o
- .debug_info    0x0000000000006662     0x16ef obj/debug/sdk/bcl/src/bc_dma.o
- .debug_info    0x0000000000007d51     0x19f1 obj/debug/sdk/bcl/src/bc_onewire.o
- .debug_info    0x0000000000009742     0x16d5 obj/debug/sdk/bcl/src/bc_system.o
- .debug_info    0x000000000000ae17      0xbb8 obj/debug/sdk/bcl/src/bc_fifo.o
- .debug_info    0x000000000000b9cf     0x1c88 obj/debug/sdk/bcl/src/bc_uart.o
- .debug_info    0x000000000000d657     0x11db obj/debug/sdk/bcl/src/bc_ds28e17.o
- .debug_info    0x000000000000e832     0x1053 obj/debug/sdk/bcl/src/bc_led.o
- .debug_info    0x000000000000f885     0x1586 obj/debug/sdk/bcl/src/bc_ir_rx.o
- .debug_info    0x0000000000010e0b     0x188a obj/debug/sdk/bcl/src/bc_wssfm10r1at.o
- .debug_info    0x0000000000012695     0x1316 obj/debug/sdk/bcl/src/bc_pyq1648.o
- .debug_info    0x00000000000139ab     0x1020 obj/debug/sdk/bcl/src/bc_button.o
- .debug_info    0x00000000000149cb      0xd91 obj/debug/sdk/bcl/src/bc_timer.o
- .debug_info    0x000000000001575c     0x14ac obj/debug/sdk/bcl/src/bc_adc.o
- .debug_info    0x0000000000016c08      0xa06 obj/debug/sdk/bcl/src/bc_tick.o
- .debug_info    0x000000000001760e     0x1f45 obj/debug/sdk/bcl/src/bc_i2c.o
- .debug_info    0x0000000000019553     0x19ef obj/debug/sdk/bcl/src/bc_ws2812b.o
- .debug_info    0x000000000001af42      0xc59 obj/debug/sdk/bcl/src/bc_module_pir.o
- .debug_info    0x000000000001bb9b     0x122a obj/debug/sdk/bcl/src/bc_module_sensor.o
- .debug_info    0x000000000001cdc5      0xd55 obj/debug/sdk/bcl/src/bc_tca9534a.o
- .debug_info    0x000000000001db1a      0xfd8 obj/debug/sdk/bcl/src/bc_data_stream.o
- .debug_info    0x000000000001eaf2      0xa2b obj/debug/sdk/bcl/src/bc_irq.o
- .debug_info    0x000000000001f51d      0xc93 obj/debug/sdk/bcl/src/bc_scheduler.o
- .debug_info    0x00000000000201b0      0xfdf obj/debug/sdk/bcl/src/bc_tmp112.o
- .debug_info    0x000000000002118f     0x1161 obj/debug/sdk/bcl/src/bc_exti.o
- .debug_info    0x00000000000222f0     0x1fc6 obj/debug/sdk/bcl/stm/src/usbd_conf.o
- .debug_info    0x00000000000242b6      0xe4a obj/debug/sdk/bcl/stm/src/stm32l0xx_it.o
- .debug_info    0x0000000000025100      0xe3b obj/debug/sdk/bcl/stm/src/main.o
- .debug_info    0x0000000000025f3b     0x34d1 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_tim.o
- .debug_info    0x000000000002940c     0x1ca5 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd.o
- .debug_info    0x000000000002b0b1     0x1027 obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
- .debug_info    0x000000000002c0d8     0x1131 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_cortex.o
- .debug_info    0x000000000002d209     0x1148 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd_ex.o
- .debug_info    0x000000000002e351     0x149a obj/debug/sdk/stm/usb/src/usbd_core.o
- .debug_info    0x000000000002f7eb     0x1695 obj/debug/sdk/stm/usb/src/usbd_ctlreq.o
- .debug_info    0x0000000000030e80      0xfc2 obj/debug/sdk/stm/usb/src/usbd_ioreq.o
- .debug_info    0x0000000000031e42      0xbec obj/debug/sdk/sys/src/system_stm32l0xx.o
- .debug_info    0x0000000000032a2e       0x22 obj/debug/sdk/sys/src/startup_stm32l083xx.o
+.debug_info     0x0000000000000000    0x32a41
+ .debug_info    0x0000000000000000     0x205f obj/debug/app/application.o
+ .debug_info    0x000000000000205f      0xfac obj/debug/sdk/bcl/src/bc_gpio.o
+ .debug_info    0x000000000000300b     0x12f0 obj/debug/sdk/bcl/src/bc_td1207r.o
+ .debug_info    0x00000000000042fb     0x1061 obj/debug/sdk/bcl/src/bc_log.o
+ .debug_info    0x000000000000535c     0x12f7 obj/debug/sdk/bcl/src/bc_module_sigfox.o
+ .debug_info    0x0000000000006653     0x16ef obj/debug/sdk/bcl/src/bc_dma.o
+ .debug_info    0x0000000000007d42     0x19f1 obj/debug/sdk/bcl/src/bc_onewire.o
+ .debug_info    0x0000000000009733     0x16d5 obj/debug/sdk/bcl/src/bc_system.o
+ .debug_info    0x000000000000ae08      0xbb8 obj/debug/sdk/bcl/src/bc_fifo.o
+ .debug_info    0x000000000000b9c0     0x1c88 obj/debug/sdk/bcl/src/bc_uart.o
+ .debug_info    0x000000000000d648     0x11db obj/debug/sdk/bcl/src/bc_ds28e17.o
+ .debug_info    0x000000000000e823     0x1053 obj/debug/sdk/bcl/src/bc_led.o
+ .debug_info    0x000000000000f876     0x1586 obj/debug/sdk/bcl/src/bc_ir_rx.o
+ .debug_info    0x0000000000010dfc     0x188a obj/debug/sdk/bcl/src/bc_wssfm10r1at.o
+ .debug_info    0x0000000000012686     0x1316 obj/debug/sdk/bcl/src/bc_pyq1648.o
+ .debug_info    0x000000000001399c     0x1020 obj/debug/sdk/bcl/src/bc_button.o
+ .debug_info    0x00000000000149bc      0xd91 obj/debug/sdk/bcl/src/bc_timer.o
+ .debug_info    0x000000000001574d     0x14ac obj/debug/sdk/bcl/src/bc_adc.o
+ .debug_info    0x0000000000016bf9      0xa06 obj/debug/sdk/bcl/src/bc_tick.o
+ .debug_info    0x00000000000175ff     0x1f45 obj/debug/sdk/bcl/src/bc_i2c.o
+ .debug_info    0x0000000000019544     0x19ef obj/debug/sdk/bcl/src/bc_ws2812b.o
+ .debug_info    0x000000000001af33      0xc59 obj/debug/sdk/bcl/src/bc_module_pir.o
+ .debug_info    0x000000000001bb8c     0x122a obj/debug/sdk/bcl/src/bc_module_sensor.o
+ .debug_info    0x000000000001cdb6      0xd55 obj/debug/sdk/bcl/src/bc_tca9534a.o
+ .debug_info    0x000000000001db0b      0xfd8 obj/debug/sdk/bcl/src/bc_data_stream.o
+ .debug_info    0x000000000001eae3      0xa2b obj/debug/sdk/bcl/src/bc_irq.o
+ .debug_info    0x000000000001f50e      0xc93 obj/debug/sdk/bcl/src/bc_scheduler.o
+ .debug_info    0x00000000000201a1      0xfdf obj/debug/sdk/bcl/src/bc_tmp112.o
+ .debug_info    0x0000000000021180     0x1161 obj/debug/sdk/bcl/src/bc_exti.o
+ .debug_info    0x00000000000222e1     0x1fc6 obj/debug/sdk/bcl/stm/src/usbd_conf.o
+ .debug_info    0x00000000000242a7      0xe4a obj/debug/sdk/bcl/stm/src/stm32l0xx_it.o
+ .debug_info    0x00000000000250f1      0xe3b obj/debug/sdk/bcl/stm/src/main.o
+ .debug_info    0x0000000000025f2c     0x34d1 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_tim.o
+ .debug_info    0x00000000000293fd     0x1ca5 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd.o
+ .debug_info    0x000000000002b0a2     0x1027 obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
+ .debug_info    0x000000000002c0c9     0x1131 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_cortex.o
+ .debug_info    0x000000000002d1fa     0x1148 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd_ex.o
+ .debug_info    0x000000000002e342     0x149a obj/debug/sdk/stm/usb/src/usbd_core.o
+ .debug_info    0x000000000002f7dc     0x1695 obj/debug/sdk/stm/usb/src/usbd_ctlreq.o
+ .debug_info    0x0000000000030e71      0xfc2 obj/debug/sdk/stm/usb/src/usbd_ioreq.o
+ .debug_info    0x0000000000031e33      0xbec obj/debug/sdk/sys/src/system_stm32l0xx.o
+ .debug_info    0x0000000000032a1f       0x22 obj/debug/sdk/sys/src/startup_stm32l083xx.o
 
 .debug_abbrev   0x0000000000000000     0x75c8
  .debug_abbrev  0x0000000000000000      0x2ad obj/debug/app/application.o
@@ -27585,46 +27585,46 @@ OUTPUT(out/debug/firmware.elf elf32-littlearm)
  .debug_abbrev  0x0000000000007395      0x221 obj/debug/sdk/sys/src/system_stm32l0xx.o
  .debug_abbrev  0x00000000000075b6       0x12 obj/debug/sdk/sys/src/startup_stm32l083xx.o
 
-.debug_loc      0x0000000000000000     0xe600
- .debug_loc     0x0000000000000000      0x3a3 obj/debug/app/application.o
- .debug_loc     0x00000000000003a3      0x2b0 obj/debug/sdk/bcl/src/bc_gpio.o
- .debug_loc     0x0000000000000653      0x256 obj/debug/sdk/bcl/src/bc_td1207r.o
- .debug_loc     0x00000000000008a9      0x4f2 obj/debug/sdk/bcl/src/bc_log.o
- .debug_loc     0x0000000000000d9b      0x74b obj/debug/sdk/bcl/src/bc_module_sigfox.o
- .debug_loc     0x00000000000014e6      0x20b obj/debug/sdk/bcl/src/bc_dma.o
- .debug_loc     0x00000000000016f1      0xc0b obj/debug/sdk/bcl/src/bc_onewire.o
- .debug_loc     0x00000000000022fc       0x66 obj/debug/sdk/bcl/src/bc_system.o
- .debug_loc     0x0000000000002362      0x24b obj/debug/sdk/bcl/src/bc_fifo.o
- .debug_loc     0x00000000000025ad      0x7c8 obj/debug/sdk/bcl/src/bc_uart.o
- .debug_loc     0x0000000000002d75      0x492 obj/debug/sdk/bcl/src/bc_ds28e17.o
- .debug_loc     0x0000000000003207      0x4f0 obj/debug/sdk/bcl/src/bc_led.o
- .debug_loc     0x00000000000036f7       0xb3 obj/debug/sdk/bcl/src/bc_ir_rx.o
- .debug_loc     0x00000000000037aa      0x5c3 obj/debug/sdk/bcl/src/bc_wssfm10r1at.o
- .debug_loc     0x0000000000003d6d      0x30c obj/debug/sdk/bcl/src/bc_pyq1648.o
- .debug_loc     0x0000000000004079      0x31f obj/debug/sdk/bcl/src/bc_button.o
- .debug_loc     0x0000000000004398       0x74 obj/debug/sdk/bcl/src/bc_timer.o
- .debug_loc     0x000000000000440c      0x366 obj/debug/sdk/bcl/src/bc_adc.o
- .debug_loc     0x0000000000004772       0x40 obj/debug/sdk/bcl/src/bc_tick.o
- .debug_loc     0x00000000000047b2      0xf43 obj/debug/sdk/bcl/src/bc_i2c.o
- .debug_loc     0x00000000000056f5      0x576 obj/debug/sdk/bcl/src/bc_ws2812b.o
- .debug_loc     0x0000000000005c6b       0xc6 obj/debug/sdk/bcl/src/bc_module_pir.o
- .debug_loc     0x0000000000005d31      0x2e9 obj/debug/sdk/bcl/src/bc_module_sensor.o
- .debug_loc     0x000000000000601a      0x363 obj/debug/sdk/bcl/src/bc_tca9534a.o
- .debug_loc     0x000000000000637d      0xafb obj/debug/sdk/bcl/src/bc_data_stream.o
- .debug_loc     0x0000000000006e78      0x1f2 obj/debug/sdk/bcl/src/bc_scheduler.o
- .debug_loc     0x000000000000706a      0x32c obj/debug/sdk/bcl/src/bc_tmp112.o
- .debug_loc     0x0000000000007396      0x200 obj/debug/sdk/bcl/src/bc_exti.o
- .debug_loc     0x0000000000007596      0xbe9 obj/debug/sdk/bcl/stm/src/usbd_conf.o
- .debug_loc     0x000000000000817f       0xbf obj/debug/sdk/bcl/stm/src/main.o
- .debug_loc     0x000000000000823e     0x34f7 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_tim.o
- .debug_loc     0x000000000000b735     0x1227 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd.o
- .debug_loc     0x000000000000c95c       0xac obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
- .debug_loc     0x000000000000ca08      0x393 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_cortex.o
- .debug_loc     0x000000000000cd9b      0x1cb obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd_ex.o
- .debug_loc     0x000000000000cf66      0x744 obj/debug/sdk/stm/usb/src/usbd_core.o
- .debug_loc     0x000000000000d6aa      0xb11 obj/debug/sdk/stm/usb/src/usbd_ctlreq.o
- .debug_loc     0x000000000000e1bb      0x23c obj/debug/sdk/stm/usb/src/usbd_ioreq.o
- .debug_loc     0x000000000000e3f7      0x209 obj/debug/sdk/sys/src/system_stm32l0xx.o
+.debug_loc      0x0000000000000000     0xe5df
+ .debug_loc     0x0000000000000000      0x382 obj/debug/app/application.o
+ .debug_loc     0x0000000000000382      0x2b0 obj/debug/sdk/bcl/src/bc_gpio.o
+ .debug_loc     0x0000000000000632      0x256 obj/debug/sdk/bcl/src/bc_td1207r.o
+ .debug_loc     0x0000000000000888      0x4f2 obj/debug/sdk/bcl/src/bc_log.o
+ .debug_loc     0x0000000000000d7a      0x74b obj/debug/sdk/bcl/src/bc_module_sigfox.o
+ .debug_loc     0x00000000000014c5      0x20b obj/debug/sdk/bcl/src/bc_dma.o
+ .debug_loc     0x00000000000016d0      0xc0b obj/debug/sdk/bcl/src/bc_onewire.o
+ .debug_loc     0x00000000000022db       0x66 obj/debug/sdk/bcl/src/bc_system.o
+ .debug_loc     0x0000000000002341      0x24b obj/debug/sdk/bcl/src/bc_fifo.o
+ .debug_loc     0x000000000000258c      0x7c8 obj/debug/sdk/bcl/src/bc_uart.o
+ .debug_loc     0x0000000000002d54      0x492 obj/debug/sdk/bcl/src/bc_ds28e17.o
+ .debug_loc     0x00000000000031e6      0x4f0 obj/debug/sdk/bcl/src/bc_led.o
+ .debug_loc     0x00000000000036d6       0xb3 obj/debug/sdk/bcl/src/bc_ir_rx.o
+ .debug_loc     0x0000000000003789      0x5c3 obj/debug/sdk/bcl/src/bc_wssfm10r1at.o
+ .debug_loc     0x0000000000003d4c      0x30c obj/debug/sdk/bcl/src/bc_pyq1648.o
+ .debug_loc     0x0000000000004058      0x31f obj/debug/sdk/bcl/src/bc_button.o
+ .debug_loc     0x0000000000004377       0x74 obj/debug/sdk/bcl/src/bc_timer.o
+ .debug_loc     0x00000000000043eb      0x366 obj/debug/sdk/bcl/src/bc_adc.o
+ .debug_loc     0x0000000000004751       0x40 obj/debug/sdk/bcl/src/bc_tick.o
+ .debug_loc     0x0000000000004791      0xf43 obj/debug/sdk/bcl/src/bc_i2c.o
+ .debug_loc     0x00000000000056d4      0x576 obj/debug/sdk/bcl/src/bc_ws2812b.o
+ .debug_loc     0x0000000000005c4a       0xc6 obj/debug/sdk/bcl/src/bc_module_pir.o
+ .debug_loc     0x0000000000005d10      0x2e9 obj/debug/sdk/bcl/src/bc_module_sensor.o
+ .debug_loc     0x0000000000005ff9      0x363 obj/debug/sdk/bcl/src/bc_tca9534a.o
+ .debug_loc     0x000000000000635c      0xafb obj/debug/sdk/bcl/src/bc_data_stream.o
+ .debug_loc     0x0000000000006e57      0x1f2 obj/debug/sdk/bcl/src/bc_scheduler.o
+ .debug_loc     0x0000000000007049      0x32c obj/debug/sdk/bcl/src/bc_tmp112.o
+ .debug_loc     0x0000000000007375      0x200 obj/debug/sdk/bcl/src/bc_exti.o
+ .debug_loc     0x0000000000007575      0xbe9 obj/debug/sdk/bcl/stm/src/usbd_conf.o
+ .debug_loc     0x000000000000815e       0xbf obj/debug/sdk/bcl/stm/src/main.o
+ .debug_loc     0x000000000000821d     0x34f7 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_tim.o
+ .debug_loc     0x000000000000b714     0x1227 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd.o
+ .debug_loc     0x000000000000c93b       0xac obj/debug/sdk/stm/hal/src/stm32l0xx_hal.o
+ .debug_loc     0x000000000000c9e7      0x393 obj/debug/sdk/stm/hal/src/stm32l0xx_hal_cortex.o
+ .debug_loc     0x000000000000cd7a      0x1cb obj/debug/sdk/stm/hal/src/stm32l0xx_hal_pcd_ex.o
+ .debug_loc     0x000000000000cf45      0x744 obj/debug/sdk/stm/usb/src/usbd_core.o
+ .debug_loc     0x000000000000d689      0xb11 obj/debug/sdk/stm/usb/src/usbd_ctlreq.o
+ .debug_loc     0x000000000000e19a      0x23c obj/debug/sdk/stm/usb/src/usbd_ioreq.o
+ .debug_loc     0x000000000000e3d6      0x209 obj/debug/sdk/sys/src/system_stm32l0xx.o
 
 .debug_aranges  0x0000000000000000     0x16a8
  .debug_aranges

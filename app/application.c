@@ -136,8 +136,8 @@ void application_task(void)
     {
         int16_t temperature_i16 = (int16_t) (temperature_avg * 10.f);
 
-        buffer[1] = temperature_i16 >> 8;
-        buffer[2] = temperature_i16;
+        buffer[1] = temperature_i16;
+        buffer[2] = temperature_i16 >> 8;
     }
 
     buffer[3] = pir_count;
