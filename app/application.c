@@ -129,7 +129,7 @@ void application_task(void)
     }
     else
     {
-         buffer[0] = 0x7f;
+         buffer[0] = 0xff;
     }
     
     float temperature_avg = NAN;

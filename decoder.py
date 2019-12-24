@@ -8,7 +8,7 @@ def temperature_decode(txt):
     return int(txt, 16) / 10.0
 
 def voltage_decode(txt):
-    if txt == '7f':
+    if txt == 'ff':
         return None
     return int(txt, 16) / 10.0
 
