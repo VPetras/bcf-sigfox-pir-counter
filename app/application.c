@@ -116,9 +116,8 @@ void application_init(void)
 
 void application_task(void)
 {
-    static uint8_t buffer[5];
+    uint8_t buffer[5];
 
-    memset(buffer, 0xff, sizeof(buffer));
     
     float voltage_avg = NAN;
 
@@ -128,6 +127,11 @@ void application_task(void)
     {
         buffer[0] = ceil(voltage_avg * 10.f);
     }
+    else
+    {
+         buffer[0] = 0x7f;
+    }
+    
     float temperature_avg = NAN;
 
     bc_data_stream_get_average(&sm_thermometer, &temperature_avg);
@@ -139,6 +143,12 @@ void application_task(void)
         buffer[1] = temperature_i16;
         buffer[2] = temperature_i16 >> 8;
     }
+    else
+    {
+        buffer[1] = 0x7f;
+        buffer[2] = 0xff;
+    }
+    
 
     buffer[3] = pir_count;
     buffer[4] = pir_count >> 8;
